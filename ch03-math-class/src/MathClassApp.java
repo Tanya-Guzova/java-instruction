@@ -16,6 +16,7 @@ public class MathClassApp {
 		// rounding to a 100th decimal value
 		double x = 10.315;
 				System.out.println(x);
+				
 				x = (double)Math.round(x * 100) / 100;
 				System.out.println(x);
 				
@@ -27,10 +28,11 @@ public class MathClassApp {
 				double r = Math.random();
 				System.out.println(r);
 				
+				//generate a random number >=0.0 and <=10
 				r = Math.random()*10;
 				System.out.println(r);
-				//generate a roll of a die, between 1-6
 				
+				//generate a roll of a die, between 1-6
 				int die = (int)(Math.random()*6) + 1;
 				System.out.println("Die roll is: " + die);
 				

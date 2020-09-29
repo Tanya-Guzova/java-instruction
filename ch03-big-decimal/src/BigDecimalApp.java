@@ -12,7 +12,7 @@ public class BigDecimalApp {
 		BigDecimal pctBD = new BigDecimal(pct); // takes a double and converts that to big decimal
 		System.out.println(pctBD);
 
-		pctBD = pctBD.setScale(4, RoundingMode.HALF_UP); // setScales return a new instance
+		pctBD = pctBD.setScale(4, RoundingMode.HALF_UP); // set Scales return a new instance
 		System.out.println(pctBD);
 
 		// add and subtract

@@ -42,7 +42,8 @@ public class GradeConverter {
 			System.out.println("Letter grade: " +letterGrade);
 			System.out.println("Continue? (y/n): ");
 			choice = sc.next();
-		//*while loop ends
+		
+			//*while loop ends
 		}
 		//goodbye message
 		System.out.println("Bye!");
