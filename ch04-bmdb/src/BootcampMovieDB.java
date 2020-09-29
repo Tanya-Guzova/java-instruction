@@ -61,6 +61,6 @@ public class BootcampMovieDB {
 
 		}
 		sc.close();
-		System.out.println("Bye");
+		System.out.println("Bye!");
 	}
 }
