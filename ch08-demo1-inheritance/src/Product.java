@@ -1,6 +1,6 @@
 import java.text.NumberFormat;
 
-//p.211 - The Product class follows rules of
+//p.263 - inheritance
 //JavaBeans. It is a true POJO (Plain Old Object Object)
 public class Product {
 	//fields/instance variable
