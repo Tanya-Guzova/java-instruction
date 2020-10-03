@@ -15,19 +15,17 @@ public class PersonManagerApp {
 			if (personType.equalsIgnoreCase("c")) {
 				String customerNumber = Console.getString("Customer number: \n");
 				Customer customer = new Customer(firstName, lastName, customerNumber);
-				System.out.println(customer);
 				person = customer;
 			} else {
-
 				String ssn = Console.getString("SSN: \n");
 				Employee employee = new Employee(firstName, lastName, ssn);
-				System.out.println(employee);
 				person = employee;
 			}
 
 			System.out.println();
 			Class c = person.getClass();
-			System.out.println("You entered a new" + " " + c.getName() + ":");
+			//System.out.println(c); <---uncomment to test the name of the class
+			System.out.println("You entered a new" + " " + c.getName() + ":"); //c.getName gets the name of Class c
 			System.out.println(person.toString());
 
 			choice = Console.getChoiceString("Continue? y/n :", "y", "n");
