@@ -22,7 +22,7 @@ public class Employee extends Person {
 	}
 	
 	public String toString () {
-		return super.toString() +"\n" + "SSN: XXX-XX-" + ssn.substring(7);
+		return super.toString() +"\n" + "SSN: XXX-XX-" + ssn.substring(7) +"\n";
 	}
 	
 }

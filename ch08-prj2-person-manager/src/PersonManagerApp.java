@@ -8,7 +8,7 @@ public class PersonManagerApp {
 
 		while (choice.equalsIgnoreCase("y")) {
 			String personType = Console.getChoiceString("Create customer or employee?: ", "c", "e");
-			String firstName = Console.getString("First Name \n");
+			String firstName = Console.getString("First Name: \n");
 			String lastName = Console.getString("Last Name: \n");
 			Person person = null;
 			
@@ -27,7 +27,7 @@ public class PersonManagerApp {
 
 			System.out.println();
 			Class c = person.getClass();
-			System.out.println("You entered a new" + " " + c.getName() + ";");
+			System.out.println("You entered a new" + " " + c.getName() + ":");
 			System.out.println(person.toString());
 
 			choice = Console.getChoiceString("Continue? y/n :", "y", "n");

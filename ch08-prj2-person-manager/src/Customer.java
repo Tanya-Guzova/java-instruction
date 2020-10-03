@@ -21,7 +21,7 @@ public class Customer extends Person {
 	}
 	
 	public String toString () {
-		return super.toString() +"\n" + "Customer Number: " + customerNumber;
+		return super.toString() +"\n" + "Customer Number: " + customerNumber +"\n";
 	}
 	
 	
