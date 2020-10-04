@@ -1,3 +1,4 @@
+import java.text.NumberFormat;
 
 public class Product {
 	private int id;
@@ -80,17 +81,20 @@ public class Product {
 	}
 
 	public String toString() {
-		String str = "***************************************\n";
-		str += "ID:\t\t" + id + "\n";
+		String str = "***********Product Summary*************\n";
+		str += "ID:\t\t\t" + id + "\n";
 		str += "Vendor Id:\t\t" + vendorId + "\n";
 		str += "Part Number:\t\t" + partNumber + "\n";
 		str += "Name:\t\t\t" + name + "\n";
-		str += "Price:\t\t\t" + price + "\n";
+		str += "Price:\t\t\t" + getPriceFormatted() + "\n";
 		str += "Unit:\t\t\t" + unit + "\n";
-		str += "Photo Path:\t\t\t" + photoPath + "\n";
+		str += "Photo Path:\t\t" + photoPath + "\n";
 		str += "***************************************\n";
 
 		return str;
 	}
-
+	public String getPriceFormatted() {
+		NumberFormat currency = NumberFormat.getCurrencyInstance();
+		return currency.format(price);
+	}
 }

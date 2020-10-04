@@ -1,3 +1,4 @@
+import java.text.NumberFormat;
 
 public class Request {
 
@@ -112,21 +113,24 @@ public class Request {
 	}
 	
 	public String toString() {
-		String str = "***************************************\n";
-		str += "ID:\t\t" + id + "\n";
+		String str = "**********Request Summary**************\n";
+		str += "ID:\t\t\t" + id + "\n";
 		str += "User Id:\t\t" + userId + "\n";
 		str += "Description:\t\t" + description + "\n";
-		str += "Justification:\t\t\t" + justification + "\n";
-		str += "Date Needed:\t\t\t" + dateNeeded + "\n";
-		str += "Delivery Mode:\t\t\t" + deliveryMode + "\n";
+		str += "Justification:\t\t" + justification + "\n";
+		str += "Date Needed:\t\t" + dateNeeded + "\n";
+		str += "Delivery Mode:\t\t" + deliveryMode + "\n";
 		str += "Status:\t\t\t" + status + "\n";
-		str += "Total:\t" + total + "\n";
-		str += "Submitted Date:\t" + submittedDate + "\n";
-		str += "Reason for Rejection:\t" + reasonForRejection + "\n";
-		
+		str += "Total:\t\t\t" + getTotalFormatted() + "\n";
+		str += "Submitted Date:\t\t" + submittedDate + "\n";
+		str += "Reason for Rejection:\t" + reasonForRejection + "\n";	
 		str += "***************************************\n";
 
 		return str;
+	}
+	public String getTotalFormatted() {
+		NumberFormat currency = NumberFormat.getCurrencyInstance();
+		return currency.format(total);
 	}
 	
 }

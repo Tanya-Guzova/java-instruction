@@ -7,8 +7,8 @@ public class User {
 	private String lastName;
 	private String phoneNumber;
 	private String email;
-	private int isReviewer;
-	private int isAdmin;
+	private boolean isReviewer;
+	private boolean isAdmin;
 	
 	
 	public User() {
@@ -17,7 +17,7 @@ public class User {
 
 
 	public User(int id, String userName, String password, String firstName, String lastName, String phoneNumber,
-			String email, int isReviewer, int isAdmin) {
+			String email, boolean isReviewer, boolean isAdmin) {
 		super();
 		this.id = id;
 		this.userName = userName;
@@ -87,35 +87,35 @@ public class User {
 	}
 	
 
-	public int getIsReviewer() {
+	public boolean getIsReviewer() {
 		return isReviewer;
 	}
 
 
-	public void setIsReviewer(int isReviewer) {
+	public void setIsReviewer(boolean isReviewer) {
 		this.isReviewer = isReviewer;
 	}
 
 
-	public int getIsAdmin() {
+	public boolean getIsAdmin() {
 		return isAdmin;
 	}
 
 
-	public void setIsAdmin(int isAdmin) {
+	public void setIsAdmin(boolean isAdmin) {
 		this.isAdmin = isAdmin;
 	}
 
 
 	@Override
 	public String toString() {
-		String str =  "***************************************\n";
-		str += "ID:\t\t" + id + "\n";
-		str += "Name:\t\t" + firstName + " " + lastName + "\n";
-		str += "Password:\t\t\t" + password + "\n";
-		str += "Phone Number:\t" + phoneNumber + "\n";str += "Reviewer:\t" + isReviewer + "\n";
-		str += "Reviewer:\t" + isReviewer + "\n";
-		str += "Admin:\t" + isAdmin + "\n";
+		String str = "*************User Summary**************\n";
+		str += "ID:\t\t\t" + id + "\n";
+		str += "Name:\t\t\t" + firstName + " " + lastName + "\n";
+		str += "Password:\t\t" + password + "\n";
+		str += "Phone Number:\t\t" + phoneNumber + "\n";
+		str += "Reviewer:\t\t" + isReviewer + "\n";
+		str += "Admin:\t\t\t" + isAdmin + "\n";
 		str += "***************************************\n";
 
 		return str;

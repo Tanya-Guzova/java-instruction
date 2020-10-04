@@ -51,11 +51,11 @@ public class LineItem {
 	}
 	
 	public String toString() {
-		String str = "***************************************\n";
+		String str = "**********Line Item Summary************\n";
 		str += "ID:\t\t" + id + "\n";
-		str += "Request ID:\t\t" + requestId + "\n";
-		str += "Product ID:\t\t" + productId + "\n";
-		str += "Quantity:\t\t\t" + quantity + "\n";
+		str += "Request ID:\t" + requestId + "\n";
+		str += "Product ID:\t" + productId + "\n";
+		str += "Quantity:\t" + quantity + "\n";
 		str += "***************************************\n";
 
 		return str;

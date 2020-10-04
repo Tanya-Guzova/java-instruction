@@ -101,16 +101,17 @@ public class Vendor {
 	}
 
 	public String toString() {
-		String str = "***************************************\n";
-		str += "ID:\t\t" + id + "\n";
-		str += "Code:\t\t" + code + "\n";
-		str += "Name:\t\t" + name + "\n";
-		str += "Address:\t\t\t" + address + "\n";
+		String str = "Vendor Summary\n";
+		str += "**********Vendor Summary***************\n";
+		str += "ID:\t\t\t" + id + "\n";
+		str += "Code:\t\t\t" + code + "\n";
+		str += "Name:\t\t\t" + name + "\n";
+		str += "Address:\t\t" + address + "\n";
 		str += "City:\t\t\t" + city + "\n";
 		str += "State:\t\t\t" + state + "\n";
 		str += "Zip:\t\t\t" + zip + "\n";
-		str += "Phone Number:\t" + phoneNumber + "\n";
-		str += "Email:\t" + email + "\n";
+		str += "Phone Number:\t\t" + phoneNumber + "\n";
+		str += "Email:\t\t\t" + email + "\n";
 		str += "***************************************\n";
 
 		return str;
