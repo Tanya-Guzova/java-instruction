@@ -101,8 +101,7 @@ public class Vendor {
 	}
 
 	public String toString() {
-		String str = "Vendor Summary\n";
-		str += "**********Vendor Summary***************\n";
+		String str = "**********Vendor Summary***************\n";
 		str += "ID:\t\t\t" + id + "\n";
 		str += "Code:\t\t\t" + code + "\n";
 		str += "Name:\t\t\t" + name + "\n";

@@ -29,8 +29,9 @@ public class PRSConsoleApp {
 				String lastName = Console.getRequiredString("Last Name?: \n");
 				String phoneNumber = Console.getRequiredString("Phone Number?: \n");
 				String email = Console.getRequiredString("Email?: \n");
-				boolean isReviewer = Console.getBoolean("Is Reviewer? :");
-				boolean isAdmin = Console.getBoolean("Is Admin? :");
+				boolean isReviewer = Console.getBoolean("Is Reviewer? (true/false):");
+				boolean isAdmin = Console.getBoolean("Is Admin? (true/false):");
+				System.out.println();
 				User user = new User(id, password, userName, firstrName, lastName, phoneNumber, email, isReviewer, isAdmin);
 				System.out.println(user.toString());
 				break;	
@@ -46,6 +47,7 @@ public class PRSConsoleApp {
 				String zip = Console.getRequiredString("Zip?: \n");
 				String vendorPhoneNumber = Console.getRequiredString("Phone Number?: \n");
 				String vendorEmail = Console.getRequiredString("Email?: \n");
+				System.out.println();
 				Vendor vendor = new Vendor(idVendor, code, name, address, city, state, zip, vendorPhoneNumber, vendorEmail);
 				System.out.println(vendor.toString());
 				break;
@@ -59,6 +61,7 @@ public class PRSConsoleApp {
 				double price = Console.getDouble("Price? : \n");
 				String unit = Console.getString("Unit?: \n");
 				String photopath = Console.getString("Photopath?: \n");
+				System.out.println();
 				Product product = new Product(productId, vendorId, partNumber, productName, price, unit, photopath);
 				System.out.println(product.toString());
 				break;		
@@ -76,6 +79,7 @@ public class PRSConsoleApp {
 				double total = Console.getDouble("Total? : \n");
 				String submittedDate = Console.getRequiredString("Submitted Date?: \n");
 				String reasonForRejection = Console.getLine("Reason for Rejection?: \n");
+				System.out.println();
 				Request request = new Request(requestId, userId, derscription, justification, dateNeeded, 
 						deliveryMode, status, total, submittedDate, reasonForRejection);
 				System.out.println(request.toString());	
@@ -87,6 +91,7 @@ public class PRSConsoleApp {
 				int requestIdLI = Console.getInt("Request ID?: \n");
 				int productIdLI = Console.getInt("Product ID?: \n");
 				int quantity = Console.getInt("Quantity?: \n");
+				System.out.println();
 				LineItem lineItem = new LineItem (lineItemId, requestIdLI, productIdLI,quantity);
 				System.out.println(lineItem.toString());
 				break;	
