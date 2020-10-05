@@ -10,23 +10,23 @@ public class PersonManagerApp {
 			String personType = Console.getChoiceString("Create customer or employee?: ", "c", "e");
 			String firstName = Console.getString("First Name: \n");
 			String lastName = Console.getString("Last Name: \n");
-			Person person = null;
+			Person p = null;
 			
 			if (personType.equalsIgnoreCase("c")) {
 				String customerNumber = Console.getString("Customer number: \n");
 				Customer customer = new Customer(firstName, lastName, customerNumber);
-				person = customer;
+				p = customer;
 			} else {
 				String ssn = Console.getString("SSN: \n");
 				Employee employee = new Employee(firstName, lastName, ssn);
-				person = employee;
+				p = employee;
 			}
 
 			System.out.println();
-			Class c = person.getClass();
+			Class c = p.getClass();
 			//System.out.println(c); <---uncomment to test the name of the class
 			System.out.println("You entered a new" + " " + c.getName() + ":"); //c.getName gets the name of Class c
-			System.out.println(person.toString());
+			System.out.println(p.toString());
 
 			choice = Console.getChoiceString("Continue? y/n :", "y", "n");
 		}
