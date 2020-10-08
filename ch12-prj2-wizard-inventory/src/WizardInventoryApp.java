@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 import ui.console.Console;
 
@@ -6,7 +7,7 @@ public class WizardInventoryApp {
 	
 
 	public static void main(String[] args) {
-		ArrayList<String> items = new ArrayList<>();
+		List<String> items = new ArrayList<>();
 		items.add("wooden staff");
 		items.add("wizard hat");
 		items.add("cloth shoes");
@@ -44,13 +45,13 @@ public class WizardInventoryApp {
 				break;
 				
 			case "edit":
-				int itemNumber = Console.getInt("Number:", 1, 4);
+				int itemNumber = Console.getInt("Number:", 1, items.size());
 				String updatedName = Console.getRequiredString("Updated name: ");
 				items.set((itemNumber-1), updatedName);
 				System.out.println("Item number " + itemNumber + " was updated.");
 				break;
 			case "drop":
-				int itemNum = Console.getInt("Number:", 1, 4);
+				int itemNum = Console.getInt("Number:", 1, items.size());
 				String item = items.get(itemNum-1);
 				items.remove(itemNum-1);
 				System.out.println(item + " was dropped.");
@@ -58,10 +59,6 @@ public class WizardInventoryApp {
 			}
 			
 		}
-		
-
-
-		
 		
 		System.out.println("Bye!");
 	}
