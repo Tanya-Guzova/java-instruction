@@ -1,7 +1,12 @@
+package ui;
 import java.util.Arrays;
 
+import business.Actor;
+import business.Movie;
+import ui.console.Console;
+
 public class BmdbApp {
-	private static Actor[] actors = new Actor[2];
+	private static Actor[] actors = new Actor[100];
 	private static Movie[] movies = new Movie [100];
 	
 
@@ -37,8 +42,8 @@ public class BmdbApp {
 				System.out.println();
 				Actor actor = new Actor(actorId, firstName, lastName, gender, birthDate);
 				System.out.println(actor.displayActor());
-				actors[count] = actor;//the element of actors array 
-				//now has the values of an object created
+				actors[count] = actor;/*the element of actors array 
+				now has the values of an object created*/
 				System.out.println(actor.getFirstName()
 						+ actor.getLastName());
 				count++;
@@ -46,8 +51,11 @@ public class BmdbApp {
 			if (enterCommand==2) {
 				System.out.println("List of Actors");
 				for (Actor a: actors) {
+					if(a!=null){
 					String arrayFirstName = a.getFirstName();
-					System.out.println(arrayFirstName);
+					String arrayLastName = a.getLastName();
+					System.out.println(arrayFirstName + " " + arrayLastName);}
+					break;
 				}
 			}
 			if (enterCommand==3) {
