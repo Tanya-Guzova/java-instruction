@@ -4,63 +4,76 @@ import java.util.List;
 import ui.console.Console;
 
 public class WizardInventoryApp {
-	
+
+	private static List<String> items = new ArrayList<>();
 
 	public static void main(String[] args) {
-		List<String> items = new ArrayList<>();
+		System.out.println("Welcome to the Wizard Inventory App!");
+		initializeItems();
+
+		String command = "";
+		while (!command.equalsIgnoreCase("exit")) {
+			displayMenu();
+			command = Console.getString("Command:  ");
+			switch (command) {
+			case "show":
+				// show / list all items
+				for (int i = 0; i < items.size(); i++) {
+					System.out.println(i + 1 + ". " + items.get(i));
+				}
+				System.out.println();
+				break;
+			case "grab":
+				// grab / add item, but max of 4
+				if (items.size() >= 4) {
+					System.out.println("You can't carry anymore items.  Please drop one first.");
+				} else {
+					String name = Console.getLine("Name: ");
+					items.add(name);
+					System.out.println(name + " was added.");
+				}
+				break;
+			case "edit":
+				// edit - prompt for item # (not the index!!!)
+				String item = findItem();
+				int idx = items.indexOf(item);
+				String newName = Console.getRequiredString("Updated name: ");
+				items.set(idx, newName);
+				System.out.println("Item #"+(idx+1)+ " was updated.");
+				break;
+			case "drop":
+				// drop
+				int itemNbr = Console.getInt("Number: ",1,items.size());
+				String itemRemoved = items.remove(itemNbr-1);
+				System.out.println(itemRemoved + " was removed.");
+				break;
+			case "exit":
+				// exit
+				break;
+			}
+
+		}
+
+		System.out.println("Bye");
+
+	}
+
+	private static void initializeItems() {
 		items.add("wooden staff");
 		items.add("wizard hat");
 		items.add("cloth shoes");
-		System.out.println("The Wizard Inventory Game\n");
-		System.out.println("Command Menu");
-		System.out.println("show - Show all items");
-		System.out.println("grab - Grab an item");
-		System.out.println("edit - Edit an item");
-		System.out.println("drop - Drop an item");
-		System.out.println("exit - Exit program");
-		String command = "";
-		System.out.println();
-		
-		while (!command.equalsIgnoreCase("exit")) {
-			int count = 0;
-			command = Console.getRequiredString("Command: ");
-			System.out.println();
-			switch(command) {
-			case "show":
-				for (String item:items) {
-				System.out.println((count+1)+". "+ item);
-				count++;
-				}
-				break;
-			case "grab":
-				if (items.size() < 4) {
-				String name = Console.getRequiredString("Name: ");
-				items.add(name);
-				System.out.println(name + " was added.");
-				}
-				else {
-					System.out.println("You can't carry any more items. "
-							+ "Drop something first.");
-				}
-				break;
-				
-			case "edit":
-				int itemNumber = Console.getInt("Number:", 1, items.size());
-				String updatedName = Console.getRequiredString("Updated name: ");
-				items.set((itemNumber-1), updatedName);
-				System.out.println("Item number " + itemNumber + " was updated.");
-				break;
-			case "drop":
-				int itemNum = Console.getInt("Number:", 1, items.size());
-				String item = items.get(itemNum-1);
-				items.remove(itemNum-1);
-				System.out.println(item + " was dropped.");
-				break;
-			}
-			
-		}
-		
-		System.out.println("Bye!");
+	}
+
+	private static void displayMenu() {
+		String menu = "COMMAND MENU:\n" + "show - Show all items\n" + "grab - Grab (add) an item\n"
+				+ "edit - Edit an item\n" + "drop - Drop an item\n" + "exit - Exit app\n";
+		System.out.println(menu);
+	}
+
+	private static String findItem() {
+		int itemNbr = Console.getInt("Number: ",1,items.size());
+		String item = items.get(itemNbr-1);		
+		return item;
 	}
 
 }
