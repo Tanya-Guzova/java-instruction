@@ -14,16 +14,16 @@ public class PigLatinTranslatorApp {
 		while (choice.equalsIgnoreCase("y")) {
 			enteredStr = Console.getRequiredString("Enter a line: ");
 			String enteredStr1 = enteredStr.toLowerCase();
-			String[] parts = enteredStr1.split(" ");
-			String[] partsNew = new String[parts.length];
+			String[] words = enteredStr1.split(" ");
+			String[] partsNew = new String[words.length];
 
-			for (int i = 0; i < parts.length; i++) {
-				if ((parts[i].charAt(0) == 'a' || parts[i].charAt(0) == 'e' || parts[i].charAt(0) == 'i'
-						|| parts[i].charAt(0) == 'o' || parts[i].charAt(0) == 'u')) {
-					String y = parts[i].concat("way");
+			for (int i = 0; i < words.length; i++) {
+				if ((words[i].charAt(0) == 'a' || words[i].charAt(0) == 'e' || words[i].charAt(0) == 'i'
+						|| words[i].charAt(0) == 'o' || words[i].charAt(0) == 'u')) {
+					String y = words[i].concat("way");
 					partsNew[i] = y;
 				} else {
-					partsNew[i] = parts[i];
+					partsNew[i] = words[i];
 				}
 			}
 			
@@ -31,8 +31,7 @@ public class PigLatinTranslatorApp {
 				System.out.print(x + " ");
 			}
 
-			choice = Console.getRequiredString("Another line? (y/n): ");
-
+			choice = Console.getChoiceString("Another Line? (y/n): ", "y", "n");
 		}
 		System.out.println("Bye!");
 	}
