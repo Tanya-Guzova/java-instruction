@@ -9,7 +9,7 @@ public class FileProcessingApp {
 		System.out.println("Processing files!");
 		//p. 463
 		// create a 'temp' directory on our hard drive
-		String dirString = "c:/temp/sub1/sub2";
+		String dirString = "c:/temp/sub1/sub3";
 		Path dirPath = Paths.get(dirString);
 		if (Files.notExists(dirPath)) {
 			Files.createDirectories(dirPath);
@@ -17,7 +17,7 @@ public class FileProcessingApp {
 		}
 		
 		// create a file
-		String fileString = "products.txt";
+		String fileString = "actors.txt";
 		Path filePath = Paths.get(dirString, fileString);
 		if (Files.notExists(filePath)) {
 			Files.createFile(filePath);
@@ -45,24 +45,26 @@ public class FileProcessingApp {
 		
 		// p. 467 write data to a file
 		// relative path - will create file inside our project folder
-		Path productsPath = Paths.get("products.txt");
-		File productsFile = productsPath.toFile();
+		Path actorsPath = Paths.get("actors.txt");
+		File actorsFile = actorsPath.toFile();
 		
 		PrintWriter out = new PrintWriter(
 						  new BufferedWriter(
-						  new FileWriter(productsFile)));
+						  new FileWriter(actorsFile)));
 		// write data to the stream
-		out.println("java\tMurach's Java Programming\t57.50");
+		out.println("1\tRobert\tDe Niro\tmale\t1943-08-17");
+
 		
 		out.close();
 		
 		
 		// read data from the file
 		BufferedReader in = new BufferedReader(
-							new FileReader(productsFile));
+							new FileReader(actorsFile));
 		String line = in.readLine();
 		System.out.println(line);
 		in.close();
+	
 		System.out.println("Bye");
 	}
 

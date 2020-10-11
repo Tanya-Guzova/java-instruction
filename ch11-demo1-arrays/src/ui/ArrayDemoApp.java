@@ -66,6 +66,16 @@ public class ArrayDemoApp {
 				System.out.println(p);
 			}
 		
+		// p. 355 last bullet - creating arrays
+			int[] nums = new int[5];
+			for (int a: nums) {
+				System.out.println(a);
+			}
+			
+			Product[] prods = new Product[5];
+			for (Product p: prods) {
+				System.out.println(p);
+			}
 		System.out.println("Bye!");
 	}
 
