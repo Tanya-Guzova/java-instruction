@@ -72,6 +72,21 @@ public class Console {
 		}
 		return i;
 	}
+	public static long getLong(String prompt) {
+		long l = 0;
+		boolean isValid = false;
+		while (!isValid) {
+			System.out.print(prompt);
+			if (sc.hasNextLong()) {
+				l = sc.nextLong();
+				isValid = true;
+			} else {
+				System.out.println("Error! Invalid long. Try again.");
+			}
+			sc.nextLine(); // discard any other data entered on the line
+		}
+		return l;
+	}
 
 	public static int getInt(String prompt, int min, int max) {
 		int i = 0;
