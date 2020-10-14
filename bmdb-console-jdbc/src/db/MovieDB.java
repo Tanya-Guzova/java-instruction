@@ -127,4 +127,10 @@ public class MovieDB implements DAO<Movie> {
 		return movie;
 	}
 
+	@Override
+	public List<Movie> findByLastName(String string) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

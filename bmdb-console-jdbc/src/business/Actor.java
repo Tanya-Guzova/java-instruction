@@ -22,6 +22,14 @@ public class Actor {
 		this.birthDate = birthDate;
 	}
 
+	public Actor(String firstName, String lastName, String gender, LocalDate birthDate) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.gender = gender;
+		this.birthDate = birthDate;
+	}
+
 	public int getId() {
 		return id;
 	}

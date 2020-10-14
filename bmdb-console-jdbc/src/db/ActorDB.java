@@ -29,7 +29,7 @@ public class ActorDB implements DAO<Actor> {// that's a class but not a real POJ
 				a = getActorFromResultSet(rs);
 			}
 		} catch (SQLException e) {
-			System.out.println("Error getting all actors!");
+			System.out.println("Error getting an actors!");
 			e.printStackTrace();
 		}
 		return a;
@@ -42,7 +42,7 @@ public class ActorDB implements DAO<Actor> {// that's a class but not a real POJ
 		String sql = "select * from actor;";
 		try (Connection conn = getConnection();
 				PreparedStatement ps = conn.prepareStatement(sql);
-				ResultSet rs = ps.executeQuery(sql);) {
+				ResultSet rs = ps.executeQuery();) {
 			// p.681 - process the result set
 			// while our rs has a line
 			while (rs.next()){
@@ -62,13 +62,13 @@ public class ActorDB implements DAO<Actor> {// that's a class but not a real POJ
 	@Override
 	public boolean add(Actor a) {
 		boolean success = false;
-		String sql = "insert into actor values (?, ?, ?, ?, ?)";
+		String sql = "insert into actor (FirstName, LastName, Gender, BirthDate) " + 
+				"values (?, ?, ?, ?)";
 		try (Connection conn = getConnection(); PreparedStatement ps = conn.prepareStatement(sql)) {
-			ps.setInt(1, a.getId());
-			ps.setString(2, a.getFirstName());
-			ps.setString(3, a.getLastName());
-			ps.setString(4, a.getGender());
-			ps.setString(5, a.getBirthDate().toString());
+			ps.setString(1, a.getFirstName());
+			ps.setString(2, a.getLastName());
+			ps.setString(3, a.getGender());
+			ps.setString(4, a.getBirthDate().toString());
 			ps.executeUpdate();
 			success = true;
 		} catch (SQLException e) {
@@ -111,10 +111,6 @@ public class ActorDB implements DAO<Actor> {// that's a class but not a real POJ
 			ps.executeUpdate();
 			success = true;
 		} 
-		catch (NullPointerException e) {
-			System.out.println("No Actor found!");
-			e.printStackTrace();
-		}
 		catch (SQLException e) {
 			System.out.println("Error deleting actor!");
 			e.printStackTrace();
@@ -131,6 +127,23 @@ public class ActorDB implements DAO<Actor> {// that's a class but not a real POJ
 		LocalDate bd = LocalDate.parse(bdStr);
 		Actor a = new Actor(id, fn, ln, g, bd);
 		return a;
+	}
+	@Override
+	public List<Actor> findByLastName(String lName) {
+		List<Actor> actors = new ArrayList<>();
+		String sql = "SELECT * FROM actor where LastName = ?";
+		try (Connection conn = getConnection(); PreparedStatement ps = conn.prepareStatement(sql)) {
+			ps.setString(1, lName);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()){
+				Actor ac = getActorFromResultSet(rs);
+				actors.add(ac);
+			}
+		} catch (SQLException e) {
+			System.out.println("Error getting an actors!");
+			e.printStackTrace();
+		}
+		return actors;
 	}
 
 }
