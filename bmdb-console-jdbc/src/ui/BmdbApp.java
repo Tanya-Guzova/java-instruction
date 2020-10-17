@@ -1,6 +1,8 @@
 package ui;
 
 import db.ActorDB;
+
+import java.nio.file.DirectoryStream.Filter;
 import java.time.LocalDate;
 import java.util.List;
 import business.Actor;
@@ -60,11 +62,14 @@ public class BmdbApp {
 				// List Actors
 				System.out.println("List of all Actors:");
 				List<Actor> actors = actorDAO.getAll();
-				for (Actor a : actors) {
-					if (a != null) {
-						System.out.println(a.displaySummary());
-					}
-				}
+//				for (Actor a : actors) {
+//					if (a != null) {
+//						System.out.println(a.displaySummary());
+//					}
+//				}
+//				//displaying actors' summary using lambda
+				actors.forEach(a -> System.out.println(a.displaySummary()));
+				
 				System.out.println();
 				break;
 			case 3:
