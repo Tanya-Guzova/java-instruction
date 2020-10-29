@@ -23,7 +23,7 @@ public class Square extends Shape {
 
 	@Override
 	public double getArea() {
-		double area = Math.pow(width, 2);//same as are = width*width
+		double area = Math.pow(width, 2);//same as area = width*width
 		return area;
 	}
 
